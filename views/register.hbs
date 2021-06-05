@@ -1,1 +1,35 @@
-<h1>Registering takes places here</h1>
+<form action='/register' method='POST'>
+	<fieldset>
+		<label for='name'>My first name is</label>
+		<input type='text' name='name' id='name' required />
+		<label for='name'>Your birthday is</label>
+		<input type='text' name='age' id='age' placeholder='dd/mm/yyyy' required />
+	</fieldset>
+	<fieldset>
+		<label for='sex'>I am a</label>
+		<input type='radio' id='man' name='sex' value='Man' required />
+		<label for='man'>Man</label>
+		<input type='radio' id='woman' name='sex' value='Woman' required />
+		<label for='woman'>Woman</label>
+		<input type='radio' id='other' name='sex' value='Other' required />
+		<label for='other'>Other</label>
+	</fieldset>
+	<fieldset>
+		<label for='orientation'>My sexual orientation is</label>
+		<input type='radio' id='straight' name='orientation' value='straight' required />
+		<label for='straight'>Straight</label>
+		<input type='radio' id='gay' name='orientation' value='Gay' required />
+		<label for='gay'>Gay</label>
+		<input type='radio' id='lesbian' name='orientation' value='lesbian' required />
+		<label for='lesbian'>Lesbian</label>
+		<input type='radio' id='queer' name='orientation' value='queer' required />
+		<label for='queer'>Queer</label>
+		<input type='radio' id='other' name='orientation' value='Other' required />
+		<label for='other'>Other</label>
+	</fieldset>
+	<fieldset>
+		<label for='other'>Upload a picture of yourself</label>
+		<input type='file' name='photo' id='photo' />
+	</fieldset>
+	<input type='submit' value='register' />
+</form>
