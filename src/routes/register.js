@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../helpers/user');
+const Database = require('../helpers/database');
 
 router.get('/register', (req, res) => {
 	res.render('register', { title: 'Register an account' });
@@ -12,6 +13,8 @@ router.get('/register/success', (req, res) => {
 router.post('/register', (req, res) => {
 	const { name, birthday, sex, orientation, photo } = req.body;
 	const user = new User(name, birthday, sex, orientation, photo);
+	const database = new Database();
+	database.create(user);
 	res.redirect('/register/success');
 });
 
