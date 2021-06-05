@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Routes
 const home = require('./src/routes/home');
+const register = require('./src/routes/register');
 
 // Set view engine
 app.set('view engine', 'hbs')
@@ -19,7 +20,8 @@ app.set('view engine', 'hbs')
 // Set static directory
 app.use(express.static(path.join(__dirname, '/public')))
 	.use(express.urlencoded({ extended: true }))
-	.use(home);
+	.use(home)
+	.use(register);
 
 // Host server locally
 app.listen(port, () => {
