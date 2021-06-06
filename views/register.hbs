@@ -15,7 +15,7 @@
 	<fieldset>
 		<label for='orientation'>My sexual orientation is</label>
 		{{#each orientation}}
-			<input type='radio' id='{{this}}' name='orientation' value='{{this}}' />
+			<input type='radio' id='{{this}}' name='orientation' value='{{this}}' required />
 			<label for='{{this}}'>{{this}}</label>
 		{{/each}}
 	</fieldset>
