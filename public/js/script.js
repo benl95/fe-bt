@@ -16,7 +16,6 @@ function getForm() {
 
 function loadInput() {
 	let inputFields = document.querySelectorAll('form input');
-
 	inputFields.forEach(input => {
 		const userInput = localStorage.getItem(input.name);
 
