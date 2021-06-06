@@ -7,25 +7,17 @@
 	</fieldset>
 	<fieldset>
 		<label for='sex'>I am a</label>
-		<input type='radio' id='man' name='sex' value='Man' required />
-		<label for='man'>Man</label>
-		<input type='radio' id='woman' name='sex' value='Woman' required />
-		<label for='woman'>Woman</label>
-		<input type='radio' id='other' name='sex' value='Other' required />
-		<label for='other'>Other</label>
+		{{#each sex}}
+			<input type='radio' id='{{this}}' name='sex' value='{{this}}' required />
+			<label for='{{this}}'>{{this}}</label>
+		{{/each}}
 	</fieldset>
 	<fieldset>
 		<label for='orientation'>My sexual orientation is</label>
-		<input type='radio' id='straight' name='orientation' value='straight' required />
-		<label for='straight'>Straight</label>
-		<input type='radio' id='gay' name='orientation' value='Gay' required />
-		<label for='gay'>Gay</label>
-		<input type='radio' id='lesbian' name='orientation' value='lesbian' required />
-		<label for='lesbian'>Lesbian</label>
-		<input type='radio' id='queer' name='orientation' value='queer' required />
-		<label for='queer'>Queer</label>
-		<input type='radio' id='other' name='orientation' value='Other' required />
-		<label for='other'>Other</label>
+		{{#each orientation}}
+			<input type='radio' id='{{this}}' name='orientation' value='{{this}}' />
+			<label for='{{this}}'>{{this}}</label>
+		{{/each}}
 	</fieldset>
 	<fieldset>
 		<label for='photo'>Upload a picture of yourself</label>
