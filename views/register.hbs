@@ -1,27 +1,30 @@
-<form action='/register' method='POST' id='register'>
-	<fieldset>
-		<label for='name'>My first name is</label>
-		<input type='text' name='name' id='name' required />
-		<label for='birthday'>Your birthday is</label>
-		<input type='text' name='birthday' id='birthday' placeholder='dd/mm/yyyy' required />
-	</fieldset>
-	<fieldset>
-		<label for='sex'>I am a</label>
-		{{#each sex}}
-			<input type='radio' id='{{this}}' name='sex' value='{{this}}' required />
-			<label for='{{this}}'>{{this}}</label>
-		{{/each}}
-	</fieldset>
-	<fieldset>
-		<label for='orientation'>My sexual orientation is</label>
-		{{#each orientation}}
-			<input type='radio' id='{{this}}' name='orientation' value='{{this}}' required />
-			<label for='{{this}}'>{{this}}</label>
-		{{/each}}
-	</fieldset>
-	<fieldset>
-		<label for='photo'>Upload a picture of yourself</label>
-		<input type='file' name='photo' id='photo' />
-	</fieldset>
-	<input type='submit' value='register' />
-</form>
+<main>
+	<form action='/register' method='POST' id='register'>
+		<fieldset>
+			<legend>Personal information</legend>
+			<label for='name'>My first name is</label>
+			<input type='text' name='name' id='name' required />
+			<label for='birthday'>Your birthday is</label>
+			<input type='text' name='birthday' id='birthday' placeholder='dd/mm/yyyy' required />
+		</fieldset>
+		<fieldset>
+			<legend>I am a</legend>
+			{{#each sex}}
+				<input type='radio' id='{{this}}' name='sex' value='{{this}}' required />
+				<label for='{{this}}'>{{this}}</label>
+			{{/each}}
+		</fieldset>
+		<fieldset>
+			<legend>My sexual orientation is</legend>
+			{{#each orientation}}
+				<input type='radio' id='{{this}}' name='orientation' value='{{this}}' required />
+				<label for='{{this}}'>{{this}}</label>
+			{{/each}}
+		</fieldset>
+		<fieldset>
+			<legend>Upload a picture of yourself</legend>
+			<input type='file' name='photo' id='photo' />
+		</fieldset>
+		<input type='submit' value='register' />
+	</form>
+</main>
