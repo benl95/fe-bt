@@ -1,0 +1,15 @@
+:root {
+	--display-fieldset: block;
+}
+
+form > fieldset:not(:first-child) {
+	display: none;
+}
+
+fieldset {
+	border: none;
+}
+
+fieldset:valid + fieldset {
+	display: var(--display-fieldset);
+}
