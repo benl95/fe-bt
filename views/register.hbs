@@ -2,24 +2,33 @@
 	{{> progressBar}}
 	<form action='/register' method='POST' id='register'>
 		<fieldset>
+			<legend>Account</legend>
+			<label for='email'>Your e-mail-address</label>
+			<input type='email' name='email' id='email' required minlength="6">
+			<span class="error email-error" aria-live="polite"></span>
+			<label for='password'>Your password</label>
+			<input type='text' name='password' id='password' required minlength="8" maxlength="100">
+		</fieldset>
+		<fieldset>
 			<legend>Personal information</legend>
 			<label for='name'>My first name is</label>
-			<input type='text' name='name' id='name' required />
+			<input type='text' name='name' id='name' required minlength="1" maxlength="100"/>
+			<span class="error" id="name-error" aria-live="polite"></span>
 			<label for='birthday'>Your birthday is</label>
-			<input type='text' name='birthday' id='birthday' placeholder='dd/mm/yyyy' required />
+			<input type='text' name='birthday' id='birthday' placeholder='dd/mm/yyyy' required  maxlength="10"/>
 		</fieldset>
 		<fieldset>
 			<legend>I am a</legend>
 			{{#each sex}}
-				<input type='radio' id='{{this}}' name='sex' value='{{this}}' required />
-				<label for='{{this}}'>{{this}}</label>
+				<input type='radio' id='sex' name='sex' value='{{this}}' required />
+				<label for='sex'>{{this}}</label>
 			{{/each}}
 		</fieldset>
 		<fieldset>
 			<legend>My sexual orientation is</legend>
 			{{#each orientation}}
-				<input type='radio' id='{{this}}' name='orientation' value='{{this}}' required />
-				<label for='{{this}}'>{{this}}</label>
+				<input type='radio' id='orientation' name='orientation' value='{{this}}' required />
+				<label for='orientation'>{{this}}</label>
 			{{/each}}
 		</fieldset>
 		<fieldset>
@@ -28,4 +37,6 @@
 		</fieldset>
 		<input type='submit' value='register' />
 	</form>
+		<button class="previous">Previous</button>
+		<button class="next">Next</button>
 </main>
