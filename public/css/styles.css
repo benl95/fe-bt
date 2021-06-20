@@ -27,10 +27,6 @@ form {
 	align-items: center;
 }
 
-form > fieldset:not(:first-child) {
-	display: none;
-}
-
 legend {
 	font-size: var(--legend-font-size);
 	margin: var(--spacing-tb);
@@ -41,10 +37,6 @@ fieldset {
 	flex-direction: column;
 	border: none;
 	margin: var(--spacing-tb);
-}
-
-fieldset:valid + fieldset {
-	display: var(--display-fieldset);
 }
 
 .progress-bar {
@@ -100,4 +92,25 @@ fieldset:valid + fieldset {
 
 .progress-bar li.active::after {
 	background-color: green;
+}
+
+fieldset * {
+	display: block;
+}
+
+input:invalid {
+	border: 1px solid red;
+}
+
+input:focus:invalid {
+	outline: none;
+}
+
+.error {
+	color: red;
+	width: 100%;
+}
+
+.error.active {
+	padding: 0.3em;
 }
