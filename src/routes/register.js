@@ -4,7 +4,7 @@ const Database = require('../helpers/database');
 
 router.get('/register', (req, res) => {
 	let sex = ['Man', 'Woman', 'Other'];
-	let orientation = ['Straight', 'Gay', 'Lesbian', 'Queer', 'Other'];
+	let orientation = ['Straight', 'Gay', 'Lesbian', 'Queer'];
 	res.render('register', { title: 'Register an account', orientation: orientation, sex: sex });
 });
 
@@ -13,11 +13,12 @@ router.get('/register/success', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+	console.log(req.body);
 	const { name, birthday, sex, orientation, photo } = req.body;
 	const user = new User(name, birthday, sex, orientation, photo);
 	const database = new Database();
 	database.create(user);
-	res.redirect('/register/success');
+	res.redirect('/');
 });
 
 module.exports = router;
