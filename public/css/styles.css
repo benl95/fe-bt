@@ -27,7 +27,7 @@ form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
+	width: 60%;
 	margin: 1rem 0 1rem 0;
 }
 
@@ -37,24 +37,28 @@ legend {
 }
 
 fieldset {
-	width: 80%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	align-items: center;
 	border: none;
 	margin: var(--spacing-tb);
 }
 
 input[type='text'],
 input[type='email'],
-input[type='date'] {
+input[type='date'],
+input[type='password'] {
+	max-width: 20rem;
 	width: 100%;
-	padding: 0.3rem;
+	padding: 0.4rem;
 	margin: 0.2rem 0 1rem 0;
+	font-size: 1rem;
 }
 
 button {
 	padding: 0.9rem;
+	max-width: 20rem;
 	width: 80%;
 	background-color: #83b1fe;
 	border: none;
@@ -65,17 +69,41 @@ button {
 	margin-bottom: 1rem;
 }
 
+legend {
+	margin: 0 auto;
+	margin-bottom: 1rem;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+	display: block;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #83b1fe;
+	padding: 1rem;
+	border-radius: 3px;
+	margin: 1rem 0 1rem 0;
+}
+
 .orientation-section input[type='radio'],
 .sex-section input[type='radio'] {
 	margin-right: 0.4rem;
 }
 
-.sex-section input[type='radio'] {
-	margin-bottom: 0.4rem;
-}
-
-#sex-error {
-	flex-grow: 1;
+.sex-section,
+.orientation-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
 .sex-section label,
@@ -86,14 +114,7 @@ button {
 	text-align: center;
 	margin: 0.4rem 0.4rem 0.4rem 0;
 	border-radius: 3px;
-}
-
-fieldset > input[type='radio']:checked + label {
-	border: 2px solid green !important;
-}
-
-fieldset > input[type='radio']:checked + label {
-	border: 2px solid green !important;
+	max-width: 10rem;
 }
 
 input:focus:invalid {
@@ -103,7 +124,6 @@ input:focus:invalid {
 .error {
 	color: red;
 	width: 100%;
-	margin-top: 0.4rem;
 }
 
 .error.active {
@@ -112,4 +132,14 @@ input:focus:invalid {
 
 .invalid {
 	border: 1px solid red;
+}
+
+.valid {
+	border: 1px solid black;
+}
+
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
