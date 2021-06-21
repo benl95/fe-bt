@@ -36,33 +36,6 @@ const formValidation = () => {
 	const birthdayError = document.querySelector('#birthday + #birthday-error');
 	const passwordInput = document.querySelector('#password');
 	const passwordError = document.querySelector('#password + #password-error');
-	const sexInputs = document.querySelectorAll('#sex');
-	const sexError = document.querySelector('#sex-error');
-	const orientationInputs = document.querySelectorAll('#orientation');
-	const orientationError = document.querySelector('#orientation-error');
-	const form = document.querySelector('#register');
-
-	form.addEventListener('submit', e => {
-		orientationInputs.forEach(elem => {
-			if (elem.checked) {
-				orientationError.textContent = '';
-				orientationError.className = 'error';
-			} else {
-				e.preventDefault();
-				orientationError.textContent = 'Please select your sexual orientation';
-			}
-		});
-
-		sexInputs.forEach(elem => {
-			if (elem.checked) {
-				sexError.textContent = '';
-				sexError.className = 'error';
-			} else {
-				e.preventDefault();
-				sexError.textContent = 'Please select your sex';
-			}
-		});
-	});
 
 	passwordInput.addEventListener('change', () => {
 		if (passwordInput.validity.valid) {
@@ -117,6 +90,8 @@ const showPasswordError = () => {
 		passwordError.textContent = 'Your password needs to have atleast 8 characters';
 	} else if (passwordInput.validity.tooLong) {
 		passwordError.textContent = `Maxium of ${passwordInput.maxlength} characters reached`;
+	} else if (passwordInput.validity.valueMissing) {
+		passwordError.textContent = 'Please provide a password';
 	}
 };
 
