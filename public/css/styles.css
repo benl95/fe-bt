@@ -128,7 +128,8 @@ input:focus:invalid {
 .error {
 	display: block;
 	color: red;
-	width: 50%;
+	max-width: 20rem;
+	width: 100%;
 }
 
 .error.active {
