@@ -7,7 +7,7 @@
 			<span class='error' id='email-error' aria-live='polite'></span>
 			<label for='password'>Your password</label>
 			<input
-				type='text'
+				type='password'
 				name='password'
 				id='password'
 				required
@@ -39,7 +39,6 @@
 					/>{{this}}
 				</label>
 			{{/each}}
-			<span class='error' id='sex-error' aria-live='polite'></span>
 		</fieldset>
 		<fieldset class='orientation-section'>
 			<legend>My sexual orientation is</legend>
@@ -55,8 +54,9 @@
 					/>{{this}}
 				</label>
 			{{/each}}
-			<span class='error' id='orientation-error' aria-live='polite'></span>
+			<br />
 		</fieldset>
 		<button type='submit'>Register account</button>
 	</form>
 </main>
+<script src='/js/script.js'></script>
