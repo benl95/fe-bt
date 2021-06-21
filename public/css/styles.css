@@ -94,6 +94,10 @@ a {
 	margin: 1rem 0 1rem 0;
 }
 
+span {
+	align-self: center;
+}
+
 .orientation-section input[type='radio'],
 .sex-section input[type='radio'] {
 	margin-right: 0.4rem;
@@ -122,8 +126,9 @@ input:focus:invalid {
 }
 
 .error {
+	display: block;
 	color: red;
-	width: 100%;
+	width: 50%;
 }
 
 .error.active {
