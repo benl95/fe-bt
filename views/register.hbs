@@ -1,46 +1,62 @@
 <main>
-	{{> progressBar}}
-	<form action='/register' method='POST' id='register'>
+	<form action='/register' name='form' method='POST' id='register'>
 		<fieldset>
 			<legend>Account</legend>
 			<label for='email'>Your e-mail-address</label>
-			<input type='email' name='email' id='email' required minlength="6">
-			<span class="error" id="email-error" aria-live="polite"></span>
+			<input type='email' name='email' id='email' required minlength='6' />
+			<span class='error' id='email-error' aria-live='polite'></span>
 			<label for='password'>Your password</label>
-			<input type='text' name='password' id='password' required minlength="8" maxlength="100">
-			<span class="error" id="password-error" aria-live="polite"></span>
+			<input
+				type='text'
+				name='password'
+				id='password'
+				required
+				minlength='8'
+				maxlength='100'
+			/>
+			<span class='error' id='password-error' aria-live='polite'></span>
 		</fieldset>
 		<fieldset>
 			<legend>Personal information</legend>
 			<label for='name'>My first name is</label>
-			<input type='text' name='name' id='name' required minlength="1" maxlength="100"/>
-			<span class="error" id="name-error" aria-live="polite"></span>
+			<input type='text' name='name' id='name' required minlength='1' maxlength='100' />
+			<span class='error' id='name-error' aria-live='polite'></span>
 			<label for='birthday'>Your birthday is</label>
 			<input type='date' name='birthday' id='birthday' required />
-			<span class="error" id="birthday-error" aria-live="polite"></span>
+			<span class='error' id='birthday-error' aria-live='polite'></span>
 		</fieldset>
-		<fieldset>
+		<fieldset class='sex-section'>
 			<legend>I am a</legend>
 			{{#each sex}}
-				<input type='radio' id='sex' name='sex' value='{{this}}' required />
-				<label for='sex'>{{this}}</label>
+				<label for='{{this}}' class='radio-label'>
+					<input
+						type='radio'
+						id='{{this}}'
+						class='sex'
+						name='sex'
+						value='{{this}}'
+						required
+					/>{{this}}
+				</label>
 			{{/each}}
-			<span class="error" id="sex-error" aria-live="polite"></span>
+			<span class='error' id='sex-error' aria-live='polite'></span>
 		</fieldset>
-		<fieldset>
+		<fieldset class='orientation-section'>
 			<legend>My sexual orientation is</legend>
 			{{#each orientation}}
-				<input type='radio' id='orientation' name='orientation' value='{{this}}' required />
-				<label for='orientation'>{{this}}</label>
+				<label for='{{this}}'>
+					<input
+						type='radio'
+						id='{{this}}'
+						class='orientation'
+						name='orientation'
+						value='{{this}}'
+						required
+					/>{{this}}
+				</label>
 			{{/each}}
-			<span class="error" id="orientation-error" aria-live="polite"></span>
+			<span class='error' id='orientation-error' aria-live='polite'></span>
 		</fieldset>
-		<fieldset>
-			<legend>Upload a picture of yourself</legend>
-			<input type='file' name='photo' id='photo' />
-		</fieldset>
-		<input type='submit' value='register' />
+		<button type='submit'>Register account</button>
 	</form>
-		<button class="previous">Previous</button>
-		<button class="next">Next</button>
 </main>
