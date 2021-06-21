@@ -41,6 +41,8 @@ const formValidation = () => {
 		if (passwordInput.validity.valid) {
 			passwordError.textContent = '';
 			passwordError.className = 'error';
+			if (passwordInput.classList.contains('invalid'))
+				passwordInput.classList.remove('invalid');
 		} else {
 			showPasswordError();
 		}
@@ -50,6 +52,7 @@ const formValidation = () => {
 		if (emailInput.validity.valid) {
 			emailError.textContent = '';
 			emailError.className = 'error';
+			if (emailInput.classList.contains('invalid')) emailInput.classList.remove('invalid');
 		} else {
 			showEmailError();
 		}
@@ -59,6 +62,7 @@ const formValidation = () => {
 		if (nameInput.validity.valid) {
 			nameError.textContent = '';
 			nameError.className = 'error';
+			if (nameInput.classList.contains('invalid')) nameInput.classList.remove('invalid');
 		} else {
 			showNameError();
 		}
@@ -93,6 +97,9 @@ const showPasswordError = () => {
 	} else if (passwordInput.validity.valueMissing) {
 		passwordError.textContent = 'Please provide a password';
 	}
+
+	passwordError.className = 'error active';
+	passwordInput.className = 'invalid';
 };
 
 const showNameError = () => {
@@ -108,6 +115,7 @@ const showNameError = () => {
 	}
 
 	nameError.className = 'error active';
+	nameInput.className = 'invalid';
 };
 
 const showEmailError = () => {
@@ -123,6 +131,7 @@ const showEmailError = () => {
 	}
 
 	emailError.className = 'error active';
+	emailInput.className = 'invalid';
 };
 
 main();
