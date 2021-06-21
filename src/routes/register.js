@@ -3,8 +3,8 @@ const User = require('../helpers/user');
 const Database = require('../helpers/database');
 
 router.get('/register', (req, res) => {
-	let sex = ['Man', 'Woman', 'Other'];
-	let orientation = ['Straight', 'Gay', 'Lesbian', 'Queer'];
+	let sex = ['man', 'woman', 'gender neutral', 'other'];
+	let orientation = ['straight', 'gay', 'lesbian', 'queer'];
 	res.render('register', { title: 'Register an account', orientation: orientation, sex: sex });
 });
 

@@ -32,13 +32,13 @@
 					<input
 						type='radio'
 						id='{{this}}'
-						class='sex'
 						name='sex'
 						value='{{this}}'
 						required
 					/>{{this}}
 				</label>
 			{{/each}}
+			<span class='error' id='sex-error' aria-live='polite'></span>
 		</fieldset>
 		<fieldset class='orientation-section'>
 			<legend>My sexual orientation is</legend>
@@ -47,14 +47,13 @@
 					<input
 						type='radio'
 						id='{{this}}'
-						class='orientation'
 						name='orientation'
 						value='{{this}}'
 						required
 					/>{{this}}
 				</label>
 			{{/each}}
-			<br />
+			<span class='error' id='orientation-error' aria-live='polite'></span>
 		</fieldset>
 		<button type='submit'>Register account</button>
 	</form>
