@@ -76,6 +76,8 @@ const formValidation = () => {
 			valid = true;
 			birthdayError.textContent = '';
 			birthdayError.className = 'error';
+			if (birthdayInput.classList.contains('invalid'))
+				birthdatInput.classList.remove('invalid');
 		} else {
 			valid = false;
 			showBirthdayError();
@@ -123,6 +125,8 @@ const formValidation = () => {
 		if (birthdayInput.validity.valid) {
 			birthdayError.textContent = '';
 			birthdayError.className = 'error';
+			if (birthdayInput.classList.contains('invalid'))
+				birthdatInput.classList.remove('invalid');
 		} else {
 			showBirthdayError();
 		}
