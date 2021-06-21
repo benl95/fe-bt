@@ -1,6 +1,8 @@
 const main = () => {
 	const form = document.querySelector('#register');
 
+	form.setAttribute('novalidate', true);
+
 	form.addEventListener('input', e => {
 		if (e.target.type !== 'submit') {
 			localStorage.setItem(e.target.name, e.target.value);
@@ -27,9 +29,49 @@ const loadInput = () => {
 
 const formValidation = () => {
 	const emailInput = document.querySelector('#email');
-	const emailError = document.querySelector('#email + span.email-error');
+	const emailError = document.querySelector('#email + #email-error');
 	const nameInput = document.querySelector('#name');
 	const nameError = document.querySelector('#name + #name-error');
+	const birthdayInput = document.querySelector('#birthday');
+	const birthdayError = document.querySelector('#birthday + #birthday-error');
+	const passwordInput = document.querySelector('#password');
+	const passwordError = document.querySelector('#password + #password-error');
+	const sexInputs = document.querySelectorAll('#sex');
+	const sexError = document.querySelector('#sex-error');
+	const orientationInputs = document.querySelectorAll('#orientation');
+	const orientationError = document.querySelector('#orientation-error');
+	const form = document.querySelector('#register');
+
+	form.addEventListener('submit', e => {
+		orientationInputs.forEach(elem => {
+			if (elem.checked) {
+				orientationError.textContent = '';
+				orientationError.className = 'error';
+			} else {
+				e.preventDefault();
+				orientationError.textContent = 'Please select your sexual orientation';
+			}
+		});
+
+		sexInputs.forEach(elem => {
+			if (elem.checked) {
+				sexError.textContent = '';
+				sexError.className = 'error';
+			} else {
+				e.preventDefault();
+				sexError.textContent = 'Please select your sex';
+			}
+		});
+	});
+
+	passwordInput.addEventListener('change', () => {
+		if (passwordInput.validity.valid) {
+			passwordError.textContent = '';
+			passwordError.className = 'error';
+		} else {
+			showPasswordError();
+		}
+	});
 
 	emailInput.addEventListener('change', () => {
 		if (emailInput.validity.valid) {
@@ -48,29 +90,34 @@ const formValidation = () => {
 			showNameError();
 		}
 	});
-};
 
-// TODO:
+	birthdayInput.addEventListener('change', () => {
+		if (birthdayInput.validity.valid) {
+			birthdayError.textContent = '';
+			birthdayError.className = 'error';
+		} else {
+			showBirthdayError();
+		}
+	});
+};
 
 const showBirthdayError = () => {
-	// Check if string contains '/'
-	// Check if string isn't empty
-	// Check if maxLength is reached
-	// Check if format is in dd/mm/yyyy
-};
+	const birthdayInput = document.querySelector('#birthday');
+	const birthdayError = document.querySelector('#birthday + #birthday-error');
 
-const showSexError = () => {
-	// Check if option is selected
-};
-
-const showOrientationError = () => {
-	// Check if options is selected
+	if (birthdayInput.validity.valueMissing)
+		birthdayError.textContent = 'Please provide your birthday';
 };
 
 const showPasswordError = () => {
-	// Check if string is minLength
-	// Check if string has reached maxLength
-	// Check if string passes regex
+	const passwordInput = document.querySelector('#password');
+	const passwordError = document.querySelector('#password + #password-error');
+
+	if (passwordInput.validity.tooShort) {
+		passwordError.textContent = 'Your password needs to have atleast 8 characters';
+	} else if (passwordInput.validity.tooLong) {
+		passwordError.textContent = `Maxium of ${passwordInput.maxlength} characters reached`;
+	}
 };
 
 const showNameError = () => {
@@ -89,7 +136,8 @@ const showNameError = () => {
 };
 
 const showEmailError = () => {
-	const emailError = document.querySelector('#email + span.email-error');
+	const emailInput = document.querySelector('#email');
+	const emailError = document.querySelector('#email + #email-error');
 
 	if (emailInput.validity.valueMissing) {
 		emailError.textContent = 'You need to enter an e-mail address.';

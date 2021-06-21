@@ -5,9 +5,10 @@
 			<legend>Account</legend>
 			<label for='email'>Your e-mail-address</label>
 			<input type='email' name='email' id='email' required minlength="6">
-			<span class="error email-error" aria-live="polite"></span>
+			<span class="error" id="email-error" aria-live="polite"></span>
 			<label for='password'>Your password</label>
 			<input type='text' name='password' id='password' required minlength="8" maxlength="100">
+			<span class="error" id="password-error" aria-live="polite"></span>
 		</fieldset>
 		<fieldset>
 			<legend>Personal information</legend>
@@ -15,7 +16,8 @@
 			<input type='text' name='name' id='name' required minlength="1" maxlength="100"/>
 			<span class="error" id="name-error" aria-live="polite"></span>
 			<label for='birthday'>Your birthday is</label>
-			<input type='text' name='birthday' id='birthday' placeholder='dd/mm/yyyy' required  maxlength="10"/>
+			<input type='date' name='birthday' id='birthday' required />
+			<span class="error" id="birthday-error" aria-live="polite"></span>
 		</fieldset>
 		<fieldset>
 			<legend>I am a</legend>
@@ -23,6 +25,7 @@
 				<input type='radio' id='sex' name='sex' value='{{this}}' required />
 				<label for='sex'>{{this}}</label>
 			{{/each}}
+			<span class="error" id="sex-error" aria-live="polite"></span>
 		</fieldset>
 		<fieldset>
 			<legend>My sexual orientation is</legend>
@@ -30,6 +33,7 @@
 				<input type='radio' id='orientation' name='orientation' value='{{this}}' required />
 				<label for='orientation'>{{this}}</label>
 			{{/each}}
+			<span class="error" id="orientation-error" aria-live="polite"></span>
 		</fieldset>
 		<fieldset>
 			<legend>Upload a picture of yourself</legend>
