@@ -36,6 +36,57 @@ const formValidation = () => {
 	const birthdayError = document.querySelector('#birthday + #birthday-error');
 	const passwordInput = document.querySelector('#password');
 	const passwordError = document.querySelector('#password + #password-error');
+	const form = document.querySelector('#register');
+
+	form.addEventListener('submit', e => {
+		let valid;
+
+		if (passwordInput.validity.valid) {
+			valid = true;
+			passwordError.textContent = '';
+			passwordError.className = 'error';
+			if (passwordInput.classList.contains('invalid'))
+				passwordInput.classList.remove('invalid');
+		} else {
+			valid = false;
+			showPasswordError();
+		}
+
+		if (emailInput.validity.valid) {
+			valid = true;
+			emailError.textContent = '';
+			emailError.className = 'error';
+			if (emailInput.classList.contains('invalid')) emailInput.classList.remove('invalid');
+		} else {
+			valid = false;
+			showEmailError();
+		}
+
+		if (nameInput.validity.valid) {
+			valid = true;
+			nameError.textContent = '';
+			nameError.className = 'error';
+			if (nameInput.classList.contains('invalid')) nameInput.classList.remove('invalid');
+		} else {
+			valid = false;
+			showNameError();
+		}
+
+		if (birthdayInput.validity.valid) {
+			valid = true;
+			birthdayError.textContent = '';
+			birthdayError.className = 'error';
+		} else {
+			valid = false;
+			showBirthdayError();
+		}
+
+		if (valid) {
+			return;
+		} else {
+			e.preventDefault();
+		}
+	});
 
 	passwordInput.addEventListener('change', () => {
 		if (passwordInput.validity.valid) {
